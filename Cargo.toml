@@ -1,0 +1,13 @@
+[package]
+name = "multitrait"
+version = "0.1.0"
+edition = "2021"
+authors = ["Dave Huseby <dwh@linuxprogrammer.org>"]
+description = "Multiformat traits"
+repository = "https://github.com/cryptidtech/multitrait.git"
+readme = "README.md"
+license = "Apache-2.0"
+
+[dependencies]
+thiserror = "1.0"
+unsigned-varint = { version = "0.8", features = ["std"] }

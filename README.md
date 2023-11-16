@@ -1,2 +1,2 @@
-# multitrait
-Traits useful for multicodec based type crates
+# multiutil
+Helpful traits and functions common to multi* types.
