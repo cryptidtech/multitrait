@@ -9,6 +9,7 @@
 
 /// Errors generated from the implementations
 pub mod error;
+pub use error::Error;
 
 /// EncodeInto trait
 pub mod enc_into;
@@ -18,11 +19,7 @@ pub mod try_decode_from;
 
 /// one-stop shop for all exported symbols
 pub mod prelude {
-    use super::*;
-
-    pub use enc_into::*;
-    pub use error::*;
-    pub use try_decode_from::*;
+    pub use super::{enc_into::*, try_decode_from::*};
 }
 
 #[cfg(test)]

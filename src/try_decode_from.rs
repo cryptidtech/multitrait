@@ -1,4 +1,4 @@
-use crate::prelude::Error;
+use crate::Error;
 use unsigned_varint::decode;
 
 /// This trait tries to decode a type from a slice of bytes. This primarily
