@@ -20,6 +20,10 @@ pub mod try_decode_from;
 /// one-stop shop for all exported symbols
 pub mod prelude {
     pub use super::{enc_into::*, try_decode_from::*};
+
+    /// re-exports
+    pub use multibase::Base;
+    pub use multicodec::prelude::Codec;
 }
 
 #[cfg(test)]

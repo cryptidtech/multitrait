@@ -1,6 +1,6 @@
 [package]
 name = "multitrait"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Dave Huseby <dwh@linuxprogrammer.org>"]
 description = "Multiformat traits"
@@ -9,5 +9,7 @@ readme = "README.md"
 license = "Apache-2.0"
 
 [dependencies]
+multibase = "0.9"
+multicodec = { version = "0.2", git = "https://github.com/cryptidtech/rust-multicodec.git" }
 thiserror = "1.0"
 unsigned-varint = { version = "0.8", features = ["std"] }
