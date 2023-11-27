@@ -13,9 +13,11 @@ pub use error::Error;
 
 /// EncodeInto trait
 pub mod enc_into;
+pub use enc_into::EncodeInto;
 
 /// TryDecodeFrom trait
 pub mod try_decode_from;
+pub use try_decode_from::TryDecodeFrom;
 
 /// one-stop shop for all exported symbols
 pub mod prelude {

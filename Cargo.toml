@@ -1,6 +1,6 @@
 [package]
 name = "multitrait"
-version = "0.1.3"
+version = "0.1.4"
 edition = "2021"
 authors = ["Dave Huseby <dwh@linuxprogrammer.org>"]
 description = "Multiformat traits"
