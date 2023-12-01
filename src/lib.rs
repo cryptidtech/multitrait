@@ -29,6 +29,16 @@ mod test {
     use super::prelude::*;
 
     #[test]
+    fn test_bool() {
+        let tbuf = true.encode_into();
+        let (tval, _) = bool::try_decode_from(&tbuf).unwrap();
+        assert_eq!(true, tval);
+        let fbuf = false.encode_into();
+        let (fval, _) = bool::try_decode_from(&fbuf).unwrap();
+        assert_eq!(false, fval);
+    }
+
+    #[test]
     fn test_u8() {
         let buf = 0xff_u8.encode_into();
         let (num, _) = u8::try_decode_from(&buf).unwrap();

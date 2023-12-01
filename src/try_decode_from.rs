@@ -12,6 +12,16 @@ pub trait TryDecodeFrom<'a>: Sized {
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error>;
 }
 
+/// Try to decode a varuint encoded bool
+impl<'a> TryDecodeFrom<'a> for bool {
+    type Error = Error;
+
+    fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
+        let (v, ptr) = decode::u8(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?;
+        Ok(((v != 0), ptr))
+    }
+}
+
 /// Try to decode a varuint encoded u8
 impl<'a> TryDecodeFrom<'a> for u8 {
     type Error = Error;

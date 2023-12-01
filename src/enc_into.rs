@@ -6,6 +6,16 @@ pub trait EncodeInto {
     fn encode_into(&self) -> Vec<u8>;
 }
 
+/// Encode a bool into a compact varuint Vec<u8>
+impl EncodeInto for bool {
+    fn encode_into(&self) -> Vec<u8> {
+        match *self {
+            true => vec![1u8],
+            false => vec![0u8],
+        }
+    }
+}
+
 /// Encode a u8 into a compact varuint Vec<u8>
 impl EncodeInto for u8 {
     fn encode_into(&self) -> Vec<u8> {
