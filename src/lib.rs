@@ -1,4 +1,7 @@
+//! # Multiutil
 //!
+//! A set of traits that are helpful for implementing
+//! [multiformats](https://github.com/multiformats/multiformats) types in Rust.
 #![warn(missing_docs)]
 #![deny(
     trivial_casts,
@@ -6,6 +9,13 @@
     unused_import_braces,
     unused_qualifications
 )]
+#![cfg_attr(not(feature = "std"), no_std)]
+
+#[cfg(not(feature = "std"))]
+extern crate alloc;
+
+#[cfg(not(feature = "std"))]
+use alloc::vec::Vec;
 
 /// Errors generated from the implementations
 pub mod error;

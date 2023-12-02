@@ -1,2 +1,2 @@
-# multiutil
-Helpful traits and functions common to multi* types.
+# Multitrait
+Helpful traits and functions common to multicodec types.
