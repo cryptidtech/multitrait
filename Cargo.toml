@@ -1,8 +1,8 @@
 [package]
 name = "multitrait"
-version = "0.1.9"
+version = "0.1.10"
 edition = "2021"
-authors = ["Dave Huseby <dwh@linuxprogrammer.org>"]
+authors = ["Dave Grantham <dwg@linuxprogrammer.org>"]
 description = "Common traits for multiformats types"
 repository = "https://github.com/cryptidtech/multitrait.git"
 readme = "README.md"

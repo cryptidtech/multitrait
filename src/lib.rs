@@ -25,13 +25,17 @@ pub use error::Error;
 pub mod enc_into;
 pub use enc_into::EncodeInto;
 
+/// Null and TryNull traits
+pub mod null;
+pub use null::{Null, TryNull};
+
 /// TryDecodeFrom trait
 pub mod try_decode_from;
 pub use try_decode_from::TryDecodeFrom;
 
 /// one-stop shop for all exported symbols
 pub mod prelude {
-    pub use super::{enc_into::*, try_decode_from::*};
+    pub use super::{enc_into::*, null::*, try_decode_from::*};
 }
 
 #[cfg(test)]
@@ -97,5 +101,39 @@ mod test {
         let buf = 0xffeeddcc_usize.encode_into();
         let (num, _) = usize::try_decode_from(&buf).unwrap();
         assert_eq!(0xffeeddcc_usize, num);
+    }
+
+    struct Foo(usize);
+
+    impl Null for Foo {
+        fn null() -> Self {
+            Foo(0)
+        }
+        fn is_null(&self) -> bool {
+            self.0 == 0
+        }
+    }
+
+    impl TryNull for Foo {
+        type Error = &'static str;
+
+        fn try_null() -> Result<Self, Self::Error> {
+            Ok(Foo(0))
+        }
+        fn is_null(&self) -> bool {
+            self.0 == 0
+        }
+    }
+
+    #[test]
+    fn test_null_value() {
+        let f = Foo::null();
+        assert!(Null::is_null(&f));
+    }
+
+    #[test]
+    fn test_try_null_value() {
+        let f = Foo::try_null().unwrap();
+        assert!(TryNull::is_null(&f));
     }
 }
