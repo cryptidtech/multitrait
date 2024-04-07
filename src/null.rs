@@ -1,3 +1,4 @@
+// SPDX-License-Idnetifier: Apache-2.0
 /// This trait is for multiformat objects that have a NULL value
 pub trait Null {
     /// return an instance of Self where is_null(&self) -> true

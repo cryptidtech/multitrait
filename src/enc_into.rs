@@ -1,3 +1,4 @@
+// SPDX-License-Idnetifier: Apache-2.0
 use unsigned_varint::{decode, encode};
 
 /// This trait encodes a numeric value into a compact varuint Vec<u8>

@@ -1,3 +1,4 @@
+// SPDX-License-Idnetifier: Apache-2.0
 //! # Multiutil
 //!
 //! A set of traits that are helpful for implementing
