@@ -1,6 +1,6 @@
 [package]
 name = "multitrait"
-version = "0.1.10"
+version = "1.0.0"
 edition = "2021"
 authors = ["Dave Grantham <dwg@linuxprogrammer.org>"]
 description = "Common traits for multiformats types"
