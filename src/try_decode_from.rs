@@ -18,7 +18,7 @@ impl<'a> TryDecodeFrom<'a> for bool {
     type Error = Error;
 
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
-        let (v, ptr) = decode::u8(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?;
+        let (v, ptr) = decode::u8(bytes).map_err(Self::Error::UnsignedVarintDecode)?;
         Ok(((v != 0), ptr))
     }
 }
@@ -28,7 +28,7 @@ impl<'a> TryDecodeFrom<'a> for u8 {
     type Error = Error;
 
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
-        Ok(decode::u8(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?)
+        decode::u8(bytes).map_err(Self::Error::UnsignedVarintDecode)
     }
 }
 
@@ -37,7 +37,7 @@ impl<'a> TryDecodeFrom<'a> for u16 {
     type Error = Error;
 
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
-        Ok(decode::u16(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?)
+        decode::u16(bytes).map_err(Self::Error::UnsignedVarintDecode)
     }
 }
 
@@ -46,7 +46,7 @@ impl<'a> TryDecodeFrom<'a> for u32 {
     type Error = Error;
 
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
-        Ok(decode::u32(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?)
+        decode::u32(bytes).map_err(Self::Error::UnsignedVarintDecode)
     }
 }
 
@@ -55,7 +55,7 @@ impl<'a> TryDecodeFrom<'a> for u64 {
     type Error = Error;
 
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
-        Ok(decode::u64(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?)
+        decode::u64(bytes).map_err(Self::Error::UnsignedVarintDecode)
     }
 }
 
@@ -64,7 +64,7 @@ impl<'a> TryDecodeFrom<'a> for u128 {
     type Error = Error;
 
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
-        Ok(decode::u128(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?)
+        decode::u128(bytes).map_err(Self::Error::UnsignedVarintDecode)
     }
 }
 
@@ -73,6 +73,6 @@ impl<'a> TryDecodeFrom<'a> for usize {
     type Error = Error;
 
     fn try_decode_from(bytes: &'a [u8]) -> Result<(Self, &'a [u8]), Self::Error> {
-        Ok(decode::usize(bytes).map_err(|e| Self::Error::UnsignedVarintDecode(e))?)
+        decode::usize(bytes).map_err(Self::Error::UnsignedVarintDecode)
     }
 }
